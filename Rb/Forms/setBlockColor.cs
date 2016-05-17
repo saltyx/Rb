@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace ChinaBlock
 {
-    public partial class setBlockColor : Form
+    public partial class setBlockColor : MetroForm
     {
         public setBlockColor()
         {
@@ -65,10 +66,7 @@ namespace ChinaBlock
             Application.DoEvents();
         }
         /*关闭*/
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
         /*单击某个图片框*/
         private void pictureBox_Click(object sender, EventArgs e)
         {
@@ -102,7 +100,9 @@ namespace ChinaBlock
             someBlock.Draw(pic_preView.Handle);
         }
         //保存
-        private void button1_Click(object sender, EventArgs e)
+
+
+        private void metroButton1_Click(object sender, EventArgs e)
         {
             if (currentBlock != 0)
             {
@@ -115,6 +115,11 @@ namespace ChinaBlock
                 //游戏设置改变
                 GameField.isChanged = true;
             }
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -5,17 +5,19 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace ChinaBlock
 {
-    public partial class help : Form
+    public partial class help : MetroForm
     {
         public help()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void metroButton1_Click(object sender, EventArgs e)
         {
             this.Close();
         }

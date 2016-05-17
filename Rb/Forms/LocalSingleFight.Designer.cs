@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.picBackGround = new System.Windows.Forms.PictureBox();
             this.pic_preView = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.t_score = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.游戏设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +56,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.msg = new System.Windows.Forms.Label();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.picBackGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_preView)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -65,51 +65,29 @@
             // 
             // picBackGround
             // 
-            this.picBackGround.BackColor = System.Drawing.Color.Tan;
+            this.picBackGround.BackColor = System.Drawing.Color.WhiteSmoke;
             this.picBackGround.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picBackGround.Location = new System.Drawing.Point(19, 106);
             this.picBackGround.Name = "picBackGround";
-            this.picBackGround.Size = new System.Drawing.Size(300, 450);
+            this.picBackGround.Size = new System.Drawing.Size(240, 400);
             this.picBackGround.TabIndex = 0;
             this.picBackGround.TabStop = false;
             // 
             // pic_preView
             // 
-            this.pic_preView.BackColor = System.Drawing.Color.Khaki;
-            this.pic_preView.Location = new System.Drawing.Point(379, 311);
+            this.pic_preView.BackColor = System.Drawing.Color.LightGray;
+            this.pic_preView.Location = new System.Drawing.Point(303, 332);
             this.pic_preView.Name = "pic_preView";
             this.pic_preView.Size = new System.Drawing.Size(186, 125);
             this.pic_preView.TabIndex = 2;
             this.pic_preView.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(377, 181);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 12);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "下一个：";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(342, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 12);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "分数：";
             // 
             // t_score
             // 
             this.t_score.AutoSize = true;
             this.t_score.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.t_score.ForeColor = System.Drawing.Color.Green;
-            this.t_score.Location = new System.Drawing.Point(418, 130);
+            this.t_score.Location = new System.Drawing.Point(413, 176);
             this.t_score.Name = "t_score";
             this.t_score.Size = new System.Drawing.Size(16, 16);
             this.t_score.TabIndex = 4;
@@ -124,7 +102,7 @@
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(558, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(504, 25);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -315,14 +293,48 @@
             this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.CustomBackground = false;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel1.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel1.Location = new System.Drawing.Point(303, 276);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(65, 19);
+            this.metroLabel1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel1.StyleManager = this.metroStyleManager1;
+            this.metroLabel1.TabIndex = 8;
+            this.metroLabel1.Text = "下一个：";
+            this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroLabel1.UseStyleColors = false;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.CustomBackground = false;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel2.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel2.Location = new System.Drawing.Point(330, 173);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(51, 19);
+            this.metroLabel2.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel2.StyleManager = this.metroStyleManager1;
+            this.metroLabel2.TabIndex = 9;
+            this.metroLabel2.Text = "分数：";
+            this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroLabel2.UseStyleColors = false;
+            // 
             // LocalSingleFight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 593);
+            this.ClientSize = new System.Drawing.Size(544, 540);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.t_score);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pic_preView);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.picBackGround);
@@ -350,8 +362,6 @@
 
         private System.Windows.Forms.PictureBox picBackGround;
         private System.Windows.Forms.PictureBox pic_preView;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label t_score;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 游戏设置ToolStripMenuItem;
@@ -377,6 +387,8 @@
         private System.Windows.Forms.ToolStripMenuItem 非常快ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 恢复默认设置ToolStripMenuItem;
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }
 

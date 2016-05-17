@@ -396,12 +396,11 @@ namespace ChinaBlock
         }
         private void 恢复默认设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GameField.BackColor = Color.Silver;
-            picBackGround1.BackColor = Color.Silver;
-            picBackGround2.BackColor = Color.Silver;
-            GameField.BlockForeColor = new Color[] { Color.Blue, Color.Beige, Color.DarkKhaki, Color.DarkMagenta, Color.DarkOliveGreen, Color.DarkOrange, Color.DarkRed };
-            GameField.BlockBackColor = new Color[] { Color.LightCyan, Color.DarkSeaGreen, Color.Beige, Color.Beige, Color.Beige, Color.Beige, Color.Beige };
-
+            GameField.BackColor = Color.WhiteSmoke;
+            picBackGround1.BackColor = Color.WhiteSmoke;
+            picBackGround2.BackColor = Color.WhiteSmoke;
+            GameField.BlockForeColor = new Color[] { Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue };
+            GameField.BlockBackColor = new Color[] { Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray };
             saveSettings();
             GameField.isChanged = false;
 

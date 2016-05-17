@@ -96,10 +96,10 @@ namespace ChinaBlock
         {
             switch (e.KeyCode)
             {
-                case Keys.Right: if (!currentBlock.right(gameField)) GameField.PlaySound("CanNotDo"); break;//向右移动
-                case Keys.Left: if (!currentBlock.left(gameField)) GameField.PlaySound("CanNotDo"); break; //向左移动
-                case Keys.Up: currentBlock.Rotate(gameField); break; //旋转
-                case Keys.Down: while (currentBlock.down(gameField)) ; break; //向下加速
+                case Keys.NumPad6: if (!currentBlock.right(gameField)) GameField.PlaySound("CanNotDo"); break;//向右移动
+                case Keys.NumPad4: if (!currentBlock.left(gameField)) GameField.PlaySound("CanNotDo"); break; //向左移动
+                case Keys.NumPad8: currentBlock.Rotate(gameField); break; //旋转
+                case Keys.NumPad5: while (currentBlock.down(gameField)) ; break; //向下加速
                 case Keys.Space:                           //空格：暂停
                     timer1.Enabled = !timer1.Enabled;
                     if (!timer1.Enabled)
@@ -318,10 +318,10 @@ namespace ChinaBlock
         }
         private void 恢复默认设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GameField.BackColor = Color.Tan;
-            picBackGround.BackColor = Color.Tan;
-            GameField.BlockForeColor = new Color[] { Color.Blue, Color.Beige, Color.DarkKhaki, Color.DarkMagenta, Color.DarkOliveGreen, Color.DarkOrange, Color.DarkRed };
-            GameField.BlockBackColor = new Color[] { Color.LightCyan, Color.DarkSeaGreen, Color.Beige, Color.Beige, Color.Beige, Color.Beige, Color.Beige };
+            GameField.BackColor = Color.WhiteSmoke;
+            picBackGround.BackColor = Color.WhiteSmoke;
+            GameField.BlockForeColor = new Color[] { Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue };
+            GameField.BlockBackColor = new Color[] { Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray };
             saveSettings();
             GameField.isChanged = false;
         }
