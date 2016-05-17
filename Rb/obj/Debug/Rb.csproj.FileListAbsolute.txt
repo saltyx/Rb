@@ -1,0 +1,16 @@
+F:\Rb\Rb\bin\Debug\ChinaBlock.exe.config
+F:\Rb\Rb\obj\Debug\ChinaBlock.exe
+F:\Rb\Rb\obj\Debug\ChinaBlock.pdb
+F:\Rb\Rb\bin\Debug\ChinaBlock.exe
+F:\Rb\Rb\bin\Debug\ChinaBlock.pdb
+F:\Rb\Rb\bin\Debug\MetroFramework.dll
+F:\Rb\Rb\obj\Debug\Rb.csprojResolveAssemblyReference.cache
+F:\Rb\Rb\obj\Debug\ChinaBlock.about.resources
+F:\Rb\Rb\obj\Debug\ChinaBlock.LocalSingleFight.resources
+F:\Rb\Rb\obj\Debug\ChinaBlock.LocalDoubleFight.resources
+F:\Rb\Rb\obj\Debug\ChinaBlock.help.resources
+F:\Rb\Rb\obj\Debug\ChinaBlock.ModeSelect.resources
+F:\Rb\Rb\obj\Debug\ChinaBlock.Properties.Resources.resources
+F:\Rb\Rb\obj\Debug\ChinaBlock.setBlockColor.resources
+F:\Rb\Rb\obj\Debug\ChinaBlock.setGameFieldBgColor.resources
+F:\Rb\Rb\obj\Debug\Rb.csproj.GenerateResource.Cache

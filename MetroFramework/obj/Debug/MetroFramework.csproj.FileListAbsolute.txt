@@ -1,0 +1,14 @@
+E:\_NET开发技术\winforms-modernui-master\winforms-modernui-master\MetroFramework\bin\Debug\MetroFramework.dll
+E:\_NET开发技术\winforms-modernui-master\winforms-modernui-master\MetroFramework\bin\Debug\MetroFramework.pdb
+E:\_NET开发技术\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.csprojResolveAssemblyReference.cache
+E:\_NET开发技术\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.Properties.Resources.resources
+E:\_NET开发技术\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.csproj.GenerateResource.Cache
+E:\_NET开发技术\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.dll
+E:\_NET开发技术\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.pdb
+C:\Users\miaol\Desktop\winforms-modernui-master\winforms-modernui-master\MetroFramework\bin\Debug\MetroFramework.dll
+C:\Users\miaol\Desktop\winforms-modernui-master\winforms-modernui-master\MetroFramework\bin\Debug\MetroFramework.pdb
+C:\Users\miaol\Desktop\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.csprojResolveAssemblyReference.cache
+C:\Users\miaol\Desktop\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.Properties.Resources.resources
+C:\Users\miaol\Desktop\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.csproj.GenerateResource.Cache
+C:\Users\miaol\Desktop\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.dll
+C:\Users\miaol\Desktop\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.pdb

@@ -1,0 +1,12 @@
+bin\Debug\ChinaBlock.exe
+bin\Debug\ChinaBlock.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\ChinaBlock.Form1.resources
+obj\Debug\ChinaBlock.Properties.Resources.resources
+obj\Debug\ChinaBlock.csproj.GenerateResource.Cache
+obj\Debug\ChinaBlock.exe
+obj\Debug\ChinaBlock.pdb
+obj\Debug\ChinaBlock.help.resources
+obj\Debug\ChinaBlock.about.resources
+obj\Debug\ChinaBlock.setGameFieldBgColor.resources
+obj\Debug\ChinaBlock.setBlockColor.resources
