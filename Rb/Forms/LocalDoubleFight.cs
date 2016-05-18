@@ -18,6 +18,10 @@ namespace ChinaBlock
         private Block nextBlockInPlayer2;  //二下一个即将出现的方块
         private GameField gameFieldInPlayer1 = new GameField();
         private GameField gameFieldInPlayer2 = new GameField();
+        private BlindItem blindItemInPlayer1 = new BlindItem(2);
+        private BlindItem blindItemInPlayer2 = new BlindItem(2);
+        private int blindItemCountInPlayer1 = 0;
+        private int blindItemCountInPlayer2 = 0;
         private Point startLocationInPlayer1 = new Point(GameField.SquareSize * 4, 0);  //玩家一方块产生的位置
         private Point startLocationInPlayer2 = new Point(GameField.SquareSize * 4, 0);  //玩家二方块产生的位置
         private int scoreInPlayer1 = 0;            //玩家积分
@@ -107,14 +111,55 @@ namespace ChinaBlock
         {
             switch (e.KeyCode)
             {
-                case Keys.NumPad6: if (!currentBlockInPlayer2.right(gameFieldInPlayer2)) GameField.PlaySound("CanNotDo"); break;//2向右移动
-                case Keys.NumPad4: if (!currentBlockInPlayer2.left(gameFieldInPlayer2)) GameField.PlaySound("CanNotDo"); break; //2向左移动
-                case Keys.NumPad8: currentBlockInPlayer2.Rotate(gameFieldInPlayer2); break; //2旋转
-                case Keys.NumPad5: while (currentBlockInPlayer2.down(gameFieldInPlayer2)) ; break; //2向下加速
-                case Keys.W: currentBlockInPlayer1.Rotate(gameFieldInPlayer1); break; //1旋转
-                case Keys.A: if (!currentBlockInPlayer1.left(gameFieldInPlayer1)) GameField.PlaySound("CanNotDo"); break; //1向左移动
-                case Keys.S: while (currentBlockInPlayer1.down(gameFieldInPlayer1)) ; break; //1向下加速
-                case Keys.D: if (!currentBlockInPlayer1.right(gameFieldInPlayer1)) GameField.PlaySound("CanNotDo"); break;//1向右移动
+                case Keys.NumPad6:
+                    if (!currentBlockInPlayer2.right(gameFieldInPlayer2))
+                        GameField.PlaySound("CanNotDo");
+                    break;//2向右移动
+                case Keys.NumPad4:
+                    if (!currentBlockInPlayer2.left(gameFieldInPlayer2))
+                        GameField.PlaySound("CanNotDo");
+                    break; //2向左移动
+                case Keys.NumPad8:
+                    currentBlockInPlayer2.Rotate(gameFieldInPlayer2);
+                    break; //2旋转
+                case Keys.NumPad5:
+                    while (currentBlockInPlayer2.down(gameFieldInPlayer2)) ;
+                    break; //2向下加速
+                case Keys.W:
+                    currentBlockInPlayer1.Rotate(gameFieldInPlayer1);
+                    break; //1旋转
+                case Keys.A:
+                    if (!currentBlockInPlayer1.left(gameFieldInPlayer1))
+                        GameField.PlaySound("CanNotDo"); break; //1向左移动
+                case Keys.S:
+                    while (currentBlockInPlayer1.down(gameFieldInPlayer1)) ;
+                    break; //1向下加速
+                case Keys.D:
+                    if (!currentBlockInPlayer1.right(gameFieldInPlayer1))
+                        GameField.PlaySound("CanNotDo"); break;//1向右移动
+                case Keys.D1:
+                    if(blindItemCountInPlayer1 > 0)
+                    {
+                        BlindItemTimer2.Start();
+                        blindItemInPlayer2.StartEffect();
+                        BlindItemModel2.Visible = true;
+                        blindItemCountInPlayer1--;
+                        BlindItemCountInPlayer11.Text = blindItemCountInPlayer1.ToString();
+                    }
+                    break;
+                
+                case Keys.NumPad1:
+                    if (blindItemCountInPlayer2 > 0)
+                    {
+                        BlindItemTimer1.Start();
+                        blindItemInPlayer1.StartEffect();
+                        BlindItemModel1.Visible = true;
+                        blindItemCountInPlayer2--;
+                        BlindItemCountInPlayer22.Text = blindItemCountInPlayer2.ToString();
+                    }
+                    break;
+
+
                 case Keys.Space:                           //空格：暂停
                     timer1.Enabled = !timer1.Enabled;
                     if (!timer1.Enabled)
@@ -129,6 +174,37 @@ namespace ChinaBlock
             picBackGround1.Focus();
         }
 
+
+
+
+        /*蒙眼道具持续时钟*/
+        private void BlindItemTimer_Tick(object sender, EventArgs e)
+        {
+            if(blindItemInPlayer1.checkDuration() && blindItemInPlayer1.getStartStatus())
+            {
+                BlindItemModel1.Visible = false;
+                blindItemInPlayer1.unEffect();
+                BlindItemTimer1.Stop();
+                picBackGround1.Invalidate();
+                Application.DoEvents();
+                gameFieldInPlayer1.Redraw();
+            }
+
+        }
+
+        private void BlindItemTimer2_Tick(object sender, EventArgs e)
+        {
+            if (blindItemInPlayer2.checkDuration() && blindItemInPlayer2.getStartStatus())
+            {
+                BlindItemModel2.Visible = false;
+                blindItemInPlayer2.unEffect();
+                BlindItemTimer2.Stop();
+                picBackGround2.Invalidate();
+                Application.DoEvents();
+                gameFieldInPlayer2.Redraw();
+            }
+
+        }
         /*游戏时钟*/
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -209,12 +285,7 @@ namespace ChinaBlock
             if (GameField.isChanged&&MessageBox.Show("设置已改变，是否在退出前保存？","提示",MessageBoxButtons.YesNo) == DialogResult.Yes)
                 saveSettings();
         }
-#region 菜单……
-        /*开始游戏*/
-        private void 开始ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            beginGame();
-        }
+
         //开始游戏的方法
         private void beginGame()
         {
@@ -224,6 +295,10 @@ namespace ChinaBlock
             结束ToolStripMenuItem.Enabled = true;
             if (currentBlockInPlayer1 == null && currentBlockInPlayer2 == null)
             {//第一次开始
+                blindItemCountInPlayer1 = 2;
+                blindItemCountInPlayer2 = 2;
+                BlindItemCountInPlayer11.Text = blindItemCountInPlayer1.ToString();
+                BlindItemCountInPlayer22.Text = blindItemCountInPlayer2.ToString();
                 currentBlockInPlayer1 = new Block(startLocationInPlayer1, Block.BlockTypes.undefined);
                 currentBlockInPlayer1.Draw(gameFieldInPlayer1.winHandle);
                 nextBlockInPlayer1 = new Block(new Point(80, 50), Block.BlockTypes.undefined);
@@ -242,6 +317,15 @@ namespace ChinaBlock
                 timer1.Enabled = true;
             }
         }
+
+
+        #region 菜单……
+        /*开始游戏*/
+        private void 开始ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            beginGame();
+        }
+
 
         /*暂停游戏*/
         private void 暂停ToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -405,7 +489,9 @@ namespace ChinaBlock
             GameField.isChanged = false;
 
         }
+
         #endregion
+
 
     }
 }

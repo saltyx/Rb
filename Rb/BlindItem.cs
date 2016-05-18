@@ -4,37 +4,53 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 
 namespace ChinaBlock
 {
-    class BlindItem : ItemBase
+    class BlindItem
     {
         public int durationTime;
         public int alreadyDuration;
+        bool isStarted;
 
-        public BlindItem(Size initSize, Color initColor) : base(initSize, initColor)
+        public BlindItem(int duration)
         {
-            size = initSize;
-            itemColor = initColor;
-            durationTime = 3;
+            durationTime = duration;
+            alreadyDuration = 0;
+            isStarted = false;
         }
 
-        public BlindItem(Size initSize, Color initColor, int initDuration) : base(initSize, initColor)
+
+
+        public void StartEffect()
         {
-            size = initSize;
-            itemColor = initColor;
-            durationTime = initDuration;
+            isStarted = true;
         }
 
-        public void Effect(IntPtr winHandle, GameField ownerGameField)
-        {
-            
 
+
+        public bool checkDuration()
+        {
+            if (alreadyDuration >= durationTime)
+                return true;
+            alreadyDuration++;
+            return false;
         }
 
-        public void unEffect(IntPtr winHandle)
+        public bool getStartStatus()
         {
+            return isStarted;
+        }
 
+        public void unEffect()
+        {
+            if (isStarted)
+            {
+                //gameField.Redraw();
+                alreadyDuration = 0;
+                isStarted = false;
+            }
         }
     }
 }

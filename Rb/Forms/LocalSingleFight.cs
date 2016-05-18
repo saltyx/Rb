@@ -14,7 +14,7 @@ namespace ChinaBlock
     {
         private Block currentBlock; //当前在运行的方块
         private Block nextBlock;   //下一个即将出现的方块
-        private ItemBase testItem;
+        //private ItemBase testItem;
         private Point startLocation = new Point(GameField.SquareSize * 8, 0);  //方块产生的位置
         private GameField gameField = new GameField();
         private int score = 0;            //玩家积分
@@ -120,6 +120,8 @@ namespace ChinaBlock
         {
             if (!stillRuning)
                 return;
+            //testItem = new ItemBase(startLocation, ItemBase.itemTypes.undefined);
+            //testItem.Draw(gameField.winHandle);
 
         }
         /*游戏时钟*/

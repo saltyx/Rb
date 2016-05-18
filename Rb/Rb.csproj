@@ -98,7 +98,6 @@
     <Compile Include="Forms\ModeSelect.Designer.cs">
       <DependentUpon>ModeSelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\about.resx">

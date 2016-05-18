@@ -64,11 +64,25 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.BlindItemCountInPlayer11 = new System.Windows.Forms.Label();
+            this.BlindItemTimer1 = new System.Windows.Forms.Timer(this.components);
+            this.BlindItemModel2 = new System.Windows.Forms.PictureBox();
+            this.BlindItemModel1 = new System.Windows.Forms.PictureBox();
+            this.BlindItemTimer2 = new System.Windows.Forms.Timer(this.components);
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BlindItemCountInPlayer22 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBackGround1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_preView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBackGround2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_preView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlindItemModel2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlindItemModel1)).BeginInit();
             this.SuspendLayout();
             // 
             // picBackGround1
@@ -417,11 +431,165 @@
             this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroLabel5.UseStyleColors = false;
             // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.CustomBackground = false;
+            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel6.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel6.Location = new System.Drawing.Point(45, 551);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(79, 19);
+            this.metroLabel6.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel6.StyleManager = this.metroStyleManager1;
+            this.metroLabel6.TabIndex = 20;
+            this.metroLabel6.Text = "蒙眼道具：";
+            this.metroLabel6.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroLabel6.UseStyleColors = false;
+            // 
+            // BlindItemCountInPlayer11
+            // 
+            this.BlindItemCountInPlayer11.AutoSize = true;
+            this.BlindItemCountInPlayer11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BlindItemCountInPlayer11.ForeColor = System.Drawing.Color.Green;
+            this.BlindItemCountInPlayer11.Location = new System.Drawing.Point(130, 551);
+            this.BlindItemCountInPlayer11.Name = "BlindItemCountInPlayer11";
+            this.BlindItemCountInPlayer11.Size = new System.Drawing.Size(16, 16);
+            this.BlindItemCountInPlayer11.TabIndex = 21;
+            this.BlindItemCountInPlayer11.Text = "0";
+            // 
+            // BlindItemTimer1
+            // 
+            this.BlindItemTimer1.Interval = 1100;
+            this.BlindItemTimer1.Tick += new System.EventHandler(this.BlindItemTimer_Tick);
+            // 
+            // BlindItemModel2
+            // 
+            this.BlindItemModel2.BackColor = System.Drawing.Color.Black;
+            this.BlindItemModel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BlindItemModel2.Location = new System.Drawing.Point(545, 144);
+            this.BlindItemModel2.Name = "BlindItemModel2";
+            this.BlindItemModel2.Size = new System.Drawing.Size(240, 400);
+            this.BlindItemModel2.TabIndex = 22;
+            this.BlindItemModel2.TabStop = false;
+            this.BlindItemModel2.Visible = false;
+            // 
+            // BlindItemModel1
+            // 
+            this.BlindItemModel1.BackColor = System.Drawing.Color.Black;
+            this.BlindItemModel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BlindItemModel1.Location = new System.Drawing.Point(45, 144);
+            this.BlindItemModel1.Name = "BlindItemModel1";
+            this.BlindItemModel1.Size = new System.Drawing.Size(240, 400);
+            this.BlindItemModel1.TabIndex = 23;
+            this.BlindItemModel1.TabStop = false;
+            this.BlindItemModel1.Visible = false;
+            // 
+            // BlindItemTimer2
+            // 
+            this.BlindItemTimer2.Interval = 1100;
+            this.BlindItemTimer2.Tick += new System.EventHandler(this.BlindItemTimer2_Tick);
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.CustomBackground = false;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel7.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel7.Location = new System.Drawing.Point(545, 551);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(79, 19);
+            this.metroLabel7.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel7.StyleManager = this.metroStyleManager1;
+            this.metroLabel7.TabIndex = 24;
+            this.metroLabel7.Text = "蒙眼道具：";
+            this.metroLabel7.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroLabel7.UseStyleColors = false;
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.CustomBackground = false;
+            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.metroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel8.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel8.Location = new System.Drawing.Point(165, 551);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(79, 19);
+            this.metroLabel8.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel8.StyleManager = this.metroStyleManager1;
+            this.metroLabel8.TabIndex = 25;
+            this.metroLabel8.Text = "禁手道具：";
+            this.metroLabel8.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroLabel8.UseStyleColors = false;
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.CustomBackground = false;
+            this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel9.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel9.Location = new System.Drawing.Point(672, 551);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(79, 19);
+            this.metroLabel9.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel9.StyleManager = this.metroStyleManager1;
+            this.metroLabel9.TabIndex = 26;
+            this.metroLabel9.Text = "禁手道具：";
+            this.metroLabel9.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroLabel9.UseStyleColors = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Green;
+            this.label1.Location = new System.Drawing.Point(250, 551);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 16);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Green;
+            this.label2.Location = new System.Drawing.Point(757, 551);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(16, 16);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "0";
+            // 
+            // BlindItemCountInPlayer22
+            // 
+            this.BlindItemCountInPlayer22.AutoSize = true;
+            this.BlindItemCountInPlayer22.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BlindItemCountInPlayer22.ForeColor = System.Drawing.Color.Green;
+            this.BlindItemCountInPlayer22.Location = new System.Drawing.Point(630, 551);
+            this.BlindItemCountInPlayer22.Name = "BlindItemCountInPlayer22";
+            this.BlindItemCountInPlayer22.Size = new System.Drawing.Size(16, 16);
+            this.BlindItemCountInPlayer22.TabIndex = 29;
+            this.BlindItemCountInPlayer22.Text = "0";
+            // 
             // LocalDoubleFight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 583);
+            this.Controls.Add(this.BlindItemCountInPlayer22);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.metroLabel9);
+            this.Controls.Add(this.metroLabel8);
+            this.Controls.Add(this.metroLabel7);
+            this.Controls.Add(this.BlindItemModel1);
+            this.Controls.Add(this.BlindItemModel2);
+            this.Controls.Add(this.BlindItemCountInPlayer11);
+            this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel3);
@@ -451,6 +619,8 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBackGround2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_preView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlindItemModel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlindItemModel1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,6 +663,18 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private System.Windows.Forms.Label BlindItemCountInPlayer11;
+        private System.Windows.Forms.Timer BlindItemTimer1;
+        private System.Windows.Forms.PictureBox BlindItemModel2;
+        private System.Windows.Forms.PictureBox BlindItemModel1;
+        private System.Windows.Forms.Timer BlindItemTimer2;
+        private System.Windows.Forms.Label BlindItemCountInPlayer22;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private MetroFramework.Controls.MetroLabel metroLabel9;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
     }
 }
 
