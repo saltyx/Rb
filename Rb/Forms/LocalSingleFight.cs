@@ -135,9 +135,11 @@ namespace ChinaBlock
             {
                 if (currentBlock.Top() == 0)
                 {//如果到顶则游戏结束
-                    showMsg("Game Over！");
                     stillRuning = false;
                     timer1.Stop();
+                    NewRecord nr = new NewRecord();
+                    nr.setScore(score);
+                    nr.ShowDialog();
                     return;
                 }
                 //否则计算分数并继续
@@ -339,8 +341,13 @@ namespace ChinaBlock
             saveSettings();
             GameField.isChanged = false;
         }
+
         #endregion
 
-
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            SqlHelper data = new SqlHelper();
+            data.ExcuteSql("SELECT * FROM singlePR");
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.IO;
 
 namespace ChinaBlock
 {
-    class GameField
+    public class GameField
     {
         public const int width = 12;           //场景的宽，以方块个数为单位
         public const int height = 20;

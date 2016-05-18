@@ -58,6 +58,7 @@
       <HintPath>.\MetroFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -85,6 +86,24 @@
     <Compile Include="Forms\LocalDoubleFight.Designer.cs">
       <DependentUpon>LocalDoubleFight.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewRecord.Designer.cs">
+      <DependentUpon>NewRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OnlineFight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OnlineFight.Designer.cs">
+      <DependentUpon>OnlineFight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OnlineFightEnemy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OnlineFightEnemy.Designer.cs">
+      <DependentUpon>OnlineFightEnemy.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameField.cs" />
     <Compile Include="Forms\help.cs">
       <SubType>Form</SubType>
@@ -98,6 +117,7 @@
     <Compile Include="Forms\ModeSelect.Designer.cs">
       <DependentUpon>ModeSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\about.resx">
@@ -117,6 +137,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ModeSelect.resx">
       <DependentUpon>ModeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewRecord.resx">
+      <DependentUpon>NewRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OnlineFight.resx">
+      <DependentUpon>OnlineFight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OnlineFightEnemy.resx">
+      <DependentUpon>OnlineFightEnemy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -158,6 +187,9 @@
     <Compile Include="Forms\setGameFieldBgColor.Designer.cs">
       <DependentUpon>setGameFieldBgColor.cs</DependentUpon>
     </Compile>
+    <Compile Include="RBsocket.cs" />
+    <Compile Include="RBSocketServer.cs" />
+    <Compile Include="SqlHelper.cs" />
     <Compile Include="Square.cs" />
   </ItemGroup>
   <ItemGroup>

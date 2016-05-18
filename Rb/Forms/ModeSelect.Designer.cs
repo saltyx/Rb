@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
-            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager();
             this.SuspendLayout();
             // 
             // label1
@@ -59,6 +59,12 @@
             this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.OwnerForm = this;
+            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Green;
+            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
             // metroButton2
             // 
             this.metroButton2.Highlight = false;
@@ -83,12 +89,7 @@
             this.metroButton3.TabIndex = 6;
             this.metroButton3.Text = "网络对战";
             this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // metroStyleManager1
-            // 
-            this.metroStyleManager1.OwnerForm = this;
-            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Green;
-            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
             // ModeSelect
             // 

@@ -10,7 +10,7 @@ namespace ChinaBlock
      * 本类为小正方形方块实体类
      * 每个block由四个颜色相同的square组成
      */
-    class Square
+    public class Square
     {
         public Point location;
         public Size size;

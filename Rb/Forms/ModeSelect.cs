@@ -43,5 +43,13 @@ namespace ChinaBlock
             ldf.Show();
             this.Hide();
         }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            OnlineFight of = new OnlineFight();
+            of.FormClosed += gameClose;
+            of.Show();
+            this.Hide();
+        }
     }
 }
