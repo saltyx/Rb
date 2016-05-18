@@ -20,7 +20,7 @@ namespace ChinaBlock
         public static SoundPlayer sound = new SoundPlayer();
 
         public Square[,] arriveBlock = new Square[width, height]; //保存已经不能再下落了的方块
-        public int[] arrBitBlock=new int[height];  //位数组：当某个位置有方块时，该行的该位为1
+        public int[] arrBitBlock = new int[height];  //位数组：当某个位置有方块时，该行的该位为1
 
 
         private const int bitEmpty = 0x000;      //0000 0000 0000 

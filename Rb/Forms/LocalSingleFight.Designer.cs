@@ -58,6 +58,7 @@
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.itemTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBackGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_preView)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -327,6 +328,11 @@
             this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroLabel2.UseStyleColors = false;
             // 
+            // itemTimer
+            // 
+            this.itemTimer.Interval = 5000;
+            this.itemTimer.Tick += new System.EventHandler(this.itemTimer_Tick);
+            // 
             // LocalSingleFight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -389,6 +395,7 @@
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private System.Windows.Forms.Timer itemTimer;
     }
 }
 

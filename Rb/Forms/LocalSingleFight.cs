@@ -14,6 +14,7 @@ namespace ChinaBlock
     {
         private Block currentBlock; //当前在运行的方块
         private Block nextBlock;   //下一个即将出现的方块
+        private ItemBase testItem;
         private Point startLocation = new Point(GameField.SquareSize * 8, 0);  //方块产生的位置
         private GameField gameField = new GameField();
         private int score = 0;            //玩家积分
@@ -114,6 +115,13 @@ namespace ChinaBlock
             picBackGround.Focus();
         }
 
+        /*道具时钟*/
+        private void itemTimer_Tick(object sender, EventArgs e)
+        {
+            if (!stillRuning)
+                return;
+
+        }
         /*游戏时钟*/
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -163,12 +171,7 @@ namespace ChinaBlock
             if (GameField.isChanged&&MessageBox.Show("设置已改变，是否在退出前保存？","提示",MessageBoxButtons.YesNo) == DialogResult.Yes)
                 saveSettings();
         }
-#region 菜单……
-        /*开始游戏*/
-        private void 开始ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            beginGame();
-        }
+
         //开始游戏的方法
         private void beginGame()
         {
@@ -184,12 +187,21 @@ namespace ChinaBlock
                 nextBlock.Draw(pic_preView.Handle);
                 stillRuning = true;
                 timer1.Start();
+                itemTimer.Start();
             }
             else
             {
                 timer1.Enabled = true;
+                itemTimer.Enabled = true;
             }
         }
+        #region 菜单……
+        /*开始游戏*/
+        private void 开始ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            beginGame();
+        }
+   
 
         /*暂停游戏*/
         private void 暂停ToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -325,7 +337,8 @@ namespace ChinaBlock
             saveSettings();
             GameField.isChanged = false;
         }
-#endregion
-       
+        #endregion
+
+
     }
 }
