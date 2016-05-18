@@ -55,6 +55,7 @@ namespace ChinaBlock
 
                     //TODO:回调函数
                     Global.callback(rec_msg);
+                    //用#号隔开
                     Send(Global.posClient_callback());
                     
                 }

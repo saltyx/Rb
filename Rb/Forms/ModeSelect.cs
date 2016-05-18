@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using ChinaBlock.Forms;
 
 namespace ChinaBlock
 {
@@ -50,6 +51,12 @@ namespace ChinaBlock
             of.FormClosed += gameClose;
             of.Show();
             this.Hide();
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            FormRecord frm = new FormRecord();
+            frm.ShowDialog();
         }
     }
 }

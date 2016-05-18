@@ -74,6 +74,12 @@
       <DependentUpon>about.cs</DependentUpon>
     </Compile>
     <Compile Include="Block.cs" />
+    <Compile Include="Forms\FormRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRecord.Designer.cs">
+      <DependentUpon>FormRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LocalSingleFight.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     <EmbeddedResource Include="Forms\about.resx">
       <SubType>Designer</SubType>
       <DependentUpon>about.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRecord.resx">
+      <DependentUpon>FormRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LocalSingleFight.resx">
       <DependentUpon>LocalSingleFight.cs</DependentUpon>

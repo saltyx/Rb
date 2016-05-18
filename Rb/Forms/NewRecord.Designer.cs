@@ -66,6 +66,7 @@
             this.gamerNameBox.TabIndex = 1;
             this.gamerNameBox.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gamerNameBox.UseStyleColors = false;
+            this.gamerNameBox.Click += new System.EventHandler(this.gamerNameBox_Click);
             // 
             // metroLabel1
             // 

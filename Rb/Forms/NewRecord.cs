@@ -43,9 +43,14 @@ namespace ChinaBlock
         private void metroButton1_Click(object sender, EventArgs e)
         {
             SqlHelper data = new SqlHelper();
-            data.ExcuteSql(string.Format("INSERT INTO singleR VALUES('{0}', {1})", user, score));
+            data.ExcuteSql(string.Format("INSERT INTO record VALUES('{0}', {1})", gamerNameBox.Text, score));
+            MessageBox.Show("恭喜您！");
+            Close();
         }
 
-      
+        private void gamerNameBox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

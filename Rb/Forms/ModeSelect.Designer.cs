@@ -33,6 +33,7 @@
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // label1
@@ -91,11 +92,25 @@
             this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
+            // metroButton4
+            // 
+            this.metroButton4.Highlight = false;
+            this.metroButton4.Location = new System.Drawing.Point(98, 256);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(75, 23);
+            this.metroButton4.Style = MetroFramework.MetroColorStyle.Green;
+            this.metroButton4.StyleManager = this.metroStyleManager1;
+            this.metroButton4.TabIndex = 7;
+            this.metroButton4.Text = "排行榜";
+            this.metroButton4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
+            // 
             // ModeSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 302);
+            this.Controls.Add(this.metroButton4);
             this.Controls.Add(this.metroButton3);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
@@ -118,5 +133,6 @@
         private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroButton metroButton3;
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
+        private MetroFramework.Controls.MetroButton metroButton4;
     }
 }
