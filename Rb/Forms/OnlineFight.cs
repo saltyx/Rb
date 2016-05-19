@@ -8,19 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using System.Threading;
 
 namespace ChinaBlock
 {
     public partial class OnlineFight : MetroForm
     {
-        //RBsocket rbsocket;
-        //RBSocketServer rbserver;
+        public delegate void sss();
+        public delegate void sss1(string s);
+        SynchronizationContext _syncContext = null;
+        RBsocket rbsocket;
+        RBSocketServer rbserver;
         private Block currentBlock; //当前在运行的方块
         private Block nextBlock;   //下一个即将出现的方块
         private Point startLocation = new Point(GameField.SquareSize * 8, 0);  //方块产生的位置
         private GameField gameField = new GameField();
         private int score = 0;            //玩家积分
+        private int enemyScore = 0;    //对方积分
         private bool stillRuning = false; //游戏运行开关
+        OnlineFightEnemy ofe;
         private enum speeds
         {
             slower = 1000,
@@ -45,8 +51,12 @@ namespace ChinaBlock
             GameField.BackColor = Color.WhiteSmoke;
             GameField.BlockForeColor = new Color[] { Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue, Color.SkyBlue };
             GameField.BlockBackColor = new Color[] { Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray, Color.DimGray };
+            _syncContext = SynchronizationContext.Current;
+            ofe = new OnlineFightEnemy();
         }
 
+
+        /*键盘操作*/
         private void OnlineFight_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -58,19 +68,7 @@ namespace ChinaBlock
             }
             picBackGround.Focus();
         }
-        /*键盘操作
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.D: if (!currentBlock.right(gameField)) GameField.PlaySound("CanNotDo"); break;//向右移动
-                case Keys.A: if (!currentBlock.left(gameField)) GameField.PlaySound("CanNotDo"); break; //向左移动
-                case Keys.W: currentBlock.Rotate(gameField); break; //旋转
-                case Keys.S: while (currentBlock.down(gameField)) ; break; //向下加速
-            }
-            picBackGround.Focus();
-        }*/
-
+       
         /*道具时钟*/
         private void itemTimer_Tick(object sender, EventArgs e)
         {
@@ -91,9 +89,10 @@ namespace ChinaBlock
             {
                 if (currentBlock.Top() == 0)
                 {//如果到顶则游戏结束
-                    MessageBox.Show("游戏结束");
                     stillRuning = false;
                     timer1.Stop();
+                    timer1.Enabled = false;
+                    MessageBox.Show("游戏结束");            
                     return;
                 }
                 //否则计算分数并继续
@@ -143,25 +142,38 @@ namespace ChinaBlock
                 timer1.Enabled = true;
             }
         }
+        
+
+
+
         private void connectGameBtn_Click(object sender, EventArgs e)
         {
-            /*OnlineFightEnemy ofe = new OnlineFightEnemy();
-            ofe.Left = this.Left + this.Size.Width;
-            ofe.Top = this.Top;
-            ofe.Show();*/
-            beginGame();
-            //this.Focus();
+            Global.callback = show1;
+            Global.posClient_callback = GetPos;
+            rbsocket = new RBsocket(this.connectBox2.Text, 10000);
+            readyBtn.Enabled = true;
 
+            ////////////////////////
+            startGameBtn.Enabled = false;
+            connectGameBtn.Enabled = false;
+            readyBtn.Enabled = true;
         }
 
         private void readyBtn_Click(object sender, EventArgs e)
         {
+            
+            ofe.Left = this.Left + this.Size.Width;
+            ofe.Top = this.Top;
+            ofe.Show();
+            this.Focus();
+            rbsocket.Send("ready");
+            beginGame();
             readyBtn.Enabled = false;
         }
 
         private void startGameBtn_Click(object sender, EventArgs e)
         {
-            /*Global.pos_callback = GetPos;
+            Global.pos_callback = GetPos;
             Global.server_callback = ServerCallBack;
             rbserver = new RBSocketServer("127.0.0.1", 10000);
             connectBox1.Text = "127.0.0.1:10000";
@@ -170,20 +182,72 @@ namespace ChinaBlock
             ////////////////////////
             startGameBtn.Enabled = false;
             connectGameBtn.Enabled = false;
-            readyBtn.Enabled = true;*/
+            readyBtn.Enabled = true;
         }
 
-        /*
-        public GameField GetPos()
+        public string data2String()
         {
-            return gameField;
+            StringBuilder sb = new StringBuilder();
+            foreach(int a in gameField.arrBitBlock)
+            {
+                sb.Append(a);
+                sb.Append(",");
+            }
+            sb.Append(this.score);
+            return sb.ToString();
         }
 
+
+
+        public void string2Data(string strToConvert)
+        {
+            string[] str = strToConvert.Split(',');
+            int[] arr = new int[20];
+            for(int i=0;i <str.Length; i++)
+            {
+                //20
+                int x;
+                int.TryParse( str[i], out x);
+                
+                //
+                if (i == 20)
+                {
+                    enemyScore = x;
+                }
+                else
+                {
+                    arr[i] = x;
+                }
+            }
+            ofe.setFieldBitBlock(arr);
+        }
+        
+        public string GetPos()
+        {
+            return data2String();
+        }
+        
         public void ServerCallBack(string s)
         {
-            MessageBox.Show("FROM SERVER CALL BACK:\n" + s);
+            if(s.Equals("ready"))
+            {
+                this.Invoke(new sss(beginGame));//beginGame();
+                Console.WriteLine("aaaaaaa");
+                //readyBtn.Enabled = false;
+            }
+            else
+            {
+                this.Invoke(new sss1(string2Data),s);
+            }
+            //MessageBox.Show("FROM SERVER CALL BACK:\n" + s);
         }
-        */
-        
+
+        public void show1(string s)
+        {
+            //MessageBox.Show(s);
+            this.Invoke(new sss1(string2Data), s);
+        }
+
+
     }
 }

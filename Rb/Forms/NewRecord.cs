@@ -43,6 +43,7 @@ namespace ChinaBlock
         private void metroButton1_Click(object sender, EventArgs e)
         {
             SqlHelper data = new SqlHelper();
+            user = gamerNameBox.Text;
             data.ExcuteSql(string.Format("INSERT INTO singleR VALUES('{0}', {1})", user, score));
         }
 

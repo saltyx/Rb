@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.picBackGroundEnemy = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBackGroundEnemy)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,6 +44,11 @@
             this.picBackGroundEnemy.TabIndex = 1;
             this.picBackGroundEnemy.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // OnlineFightEnemy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -52,6 +59,7 @@
             this.Name = "OnlineFightEnemy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "对方情况";
+            this.Load += new System.EventHandler(this.OnlineFightEnemy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBackGroundEnemy)).EndInit();
             this.ResumeLayout(false);
 
@@ -60,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox picBackGroundEnemy;
+        private System.Windows.Forms.Timer timer1;
     }
 }

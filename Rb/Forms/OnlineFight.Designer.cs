@@ -103,6 +103,7 @@
             this.connectBox2.Style = MetroFramework.MetroColorStyle.Blue;
             this.connectBox2.StyleManager = null;
             this.connectBox2.TabIndex = 3;
+            this.connectBox2.Text = "127.0.0.1";
             this.connectBox2.Theme = MetroFramework.MetroThemeStyle.Light;
             this.connectBox2.UseStyleColors = false;
             // 

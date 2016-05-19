@@ -115,6 +115,8 @@ namespace ChinaBlock
             picBackGround.Focus();
         }
 
+
+        
         /*道具时钟*/
         private void itemTimer_Tick(object sender, EventArgs e)
         {
@@ -160,6 +162,7 @@ namespace ChinaBlock
                 nextBlock.Draw(pic_preView.Handle);
             }
             currentBlock.down(gameField);
+            gameField.Redraw();
         }
 
          /*窗口重绘*/
@@ -167,7 +170,7 @@ namespace ChinaBlock
         {
             picBackGround.Invalidate();
             Application.DoEvents();
-            gameField.Redraw();
+
         }
         /*关闭窗体时，提示是否保存设置*/
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -349,5 +352,8 @@ namespace ChinaBlock
             SqlHelper data = new SqlHelper();
             data.ExcuteSql("SELECT * FROM singlePR");
         }
+
+
+
     }
 }

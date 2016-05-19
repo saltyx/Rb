@@ -270,14 +270,23 @@ namespace ChinaBlock
             currentBlockInPlayer2.down(gameFieldInPlayer2);
         }
 
-         /*窗口重绘*/
-        private void Form1_Activated(object sender, EventArgs e)
+
+        private void LocalDoubleFight_DragDrop(object sender, DragEventArgs e)
         {
             picBackGround1.Invalidate();
             picBackGround2.Invalidate();
             Application.DoEvents();
             gameFieldInPlayer1.Redraw();
             gameFieldInPlayer2.Redraw();
+        }
+        /*窗口重绘*/
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            /*picBackGround1.Invalidate();
+            picBackGround2.Invalidate();
+            Application.DoEvents();
+            gameFieldInPlayer1.Redraw();
+            gameFieldInPlayer2.Redraw();*/
         }
         /*关闭窗体时，提示是否保存设置*/
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -489,6 +498,7 @@ namespace ChinaBlock
             GameField.isChanged = false;
 
         }
+
 
         #endregion
 

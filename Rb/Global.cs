@@ -24,25 +24,6 @@ namespace ChinaBlock
 
         public static return_position posClient_callback;
 
-        public static int[] String2IntArr(string s)
-        {
-            int[] pos;
-            pos = new int[s.Length];
-            for (int i = 0; i < s.Length; i++)
-            {
-                pos[i] = s[i] - '0';
-            }
-            return pos;
-        }
-
-        public static string IntArr2String(int[] pos)
-        {
-            string temp = "";
-            for (int i = 0; i < pos.Length; i++)
-            {
-                temp += pos[i].ToString();
-            }
-            return temp;
-        }
+        
     }
 }

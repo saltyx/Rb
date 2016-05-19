@@ -44,7 +44,7 @@ namespace ChinaBlock
         public void stopSquare(Square sq, int x, int y)
         {
             arriveBlock[x, y] = sq;
-            arrBitBlock[y]=arrBitBlock[y]|(1<<x);
+            arrBitBlock[y] = arrBitBlock[y]|(1<<x);
         }
         /*检测行是否满 
          * 返回：成功消除的行数和  （方便统计分数）
@@ -100,12 +100,20 @@ namespace ChinaBlock
         }
         /*重画*/
         public void Redraw()
-        { 
-            for(int y=height-1;y>=0;y--)
-                if(arrBitBlock[y]!=bitEmpty)
-                    for(int x=0;x<width;x++)
+        {
+            for (int y = height - 1; y >= 0; y--)
+            {
+                if (arrBitBlock[y] != bitEmpty)
+                {
+                    for (int x = 0; x < width; x++)
+                    {
                         if ((arrBitBlock[y] & (1 << x)) != 0)
-                            arriveBlock[x, y].Draw(winHandle);  
+                        {              
+                            arriveBlock[x, y].Draw(winHandle);
+                        }
+                    }
+                }
+            }
         }
         
         //结束
