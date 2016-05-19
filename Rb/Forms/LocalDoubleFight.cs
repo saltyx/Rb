@@ -113,16 +113,19 @@ namespace ChinaBlock
         /*键盘操作*/
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (!op)
-                return;
             switch (e.KeyCode)
             {
                 case Keys.NumPad6:if (!currentBlockInPlayer2.right(gameFieldInPlayer2)) GameField.PlaySound("CanNotDo");  break;//2向右移动
                 case Keys.NumPad4: if (!currentBlockInPlayer2.left(gameFieldInPlayer2)) GameField.PlaySound("CanNotDo"); break; //2向左移动
                 case Keys.NumPad8: currentBlockInPlayer2.Rotate(gameFieldInPlayer2); break; //2旋转
                 case Keys.NumPad5: while (currentBlockInPlayer2.down(gameFieldInPlayer2)) ; break; //2向下加速
-                case Keys.W: currentBlockInPlayer1.Rotate(gameFieldInPlayer1); break; //1旋转
+                case Keys.W:
+                    if (!op)
+                        return;
+                    currentBlockInPlayer1.Rotate(gameFieldInPlayer1); break; //1旋转
                 case Keys.A:
+                    if (!op)
+                        return;
                     if (operation)
                     {
                         if (!nextTool1.left(gameFieldInPlayer1)) GameField.PlaySound("CanNotDo");
@@ -133,6 +136,8 @@ namespace ChinaBlock
                     }
                     break;//2向左移动 
                 case Keys.S:
+                    if (!op)
+                        return;
                     if (operation)
                     {
                         while (nextTool1.down(gameFieldInPlayer1)) ; break; //1向下加速
@@ -142,6 +147,8 @@ namespace ChinaBlock
                         while (currentBlockInPlayer1.down(gameFieldInPlayer1)) ; break; //1向下加速
                     }
                 case Keys.D:
+                    if (!op)
+                        return;
                     if (operation)
                     {
                         if (!nextTool1.right(gameFieldInPlayer1)) GameField.PlaySound("CanNotDo");
@@ -255,7 +262,7 @@ namespace ChinaBlock
             currentBlockInPlayer2.down(gameFieldInPlayer2);
             tool = false;
             Random rand = new Random();//随机产生道具
-            if (rand.Next(4) % 2 == 0)
+            if (rand.Next(5) % 3 == 0)
                 tool = true;
         }
 
