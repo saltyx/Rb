@@ -14,6 +14,7 @@ namespace ChinaBlock
 {
     public partial class OnlineFight : MetroForm
     {
+        public delegate void ss(bool f);
         public delegate void sss();
         public delegate void sss1(string s);
         SynchronizationContext _syncContext = null;
@@ -113,6 +114,7 @@ namespace ChinaBlock
                 nextBlock.Draw(pic_preView.Handle);
             }
             currentBlock.down(gameField);
+            gameField.Redraw();
         }
 
         /*窗口重绘*/
@@ -232,6 +234,7 @@ namespace ChinaBlock
             if(s.Equals("ready"))
             {
                 this.Invoke(new sss(beginGame));//beginGame();
+                this.Invoke(new ss(Enable_ReadyBtn), false);
                 Console.WriteLine("aaaaaaa");
                 //readyBtn.Enabled = false;
             }
@@ -240,6 +243,11 @@ namespace ChinaBlock
                 this.Invoke(new sss1(string2Data),s);
             }
             //MessageBox.Show("FROM SERVER CALL BACK:\n" + s);
+        }
+
+        public void Enable_ReadyBtn(bool f)
+        {
+            this.readyBtn.Enabled = f;
         }
 
         public void show1(string s)
