@@ -14,3 +14,19 @@ F:\Rb\Rb\obj\Debug\ChinaBlock.Properties.Resources.resources
 F:\Rb\Rb\obj\Debug\ChinaBlock.setBlockColor.resources
 F:\Rb\Rb\obj\Debug\ChinaBlock.setGameFieldBgColor.resources
 F:\Rb\Rb\obj\Debug\Rb.csproj.GenerateResource.Cache
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\bin\Debug\ChinaBlock.exe.config
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\ChinaBlock.exe
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\ChinaBlock.pdb
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\bin\Debug\ChinaBlock.exe
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\bin\Debug\ChinaBlock.pdb
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\bin\Debug\MetroFramework.dll
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\Rb.csprojResolveAssemblyReference.cache
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\ChinaBlock.about.resources
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\ChinaBlock.LocalSingleFight.resources
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\ChinaBlock.LocalDoubleFight.resources
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\ChinaBlock.help.resources
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\ChinaBlock.ModeSelect.resources
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\ChinaBlock.Properties.Resources.resources
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\ChinaBlock.setBlockColor.resources
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\ChinaBlock.setGameFieldBgColor.resources
+D:\Users\wcy\Documents\Visual Studio 2015\Projects\Rb\Rb\obj\Debug\Rb.csproj.GenerateResource.Cache

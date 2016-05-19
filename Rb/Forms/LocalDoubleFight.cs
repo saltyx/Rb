@@ -15,14 +15,22 @@ namespace ChinaBlock
         private Block currentBlockInPlayer1; //玩家一当前在运行的方块
         private Block currentBlockInPlayer2; //玩家二当前在运行的方块
         private Block nextBlockInPlayer1;   //下一个即将出现的方块
+        private Tool nextTool1; //下一个即将出现的道具
+        private Point toolLocation1;
+        private Tool nextTool2;
         private Block nextBlockInPlayer2;  //二下一个即将出现的方块
         private GameField gameFieldInPlayer1 = new GameField();
         private GameField gameFieldInPlayer2 = new GameField();
         private Point startLocationInPlayer1 = new Point(GameField.SquareSize * 4, 0);  //玩家一方块产生的位置
         private Point startLocationInPlayer2 = new Point(GameField.SquareSize * 4, 0);  //玩家二方块产生的位置
+        private Point startTool = new Point(GameField.SquareSize * 4, 380);
         private int scoreInPlayer1 = 0;            //玩家积分
         private int scoreInPlayer2 = 0;
         private bool stillRuning = false; //游戏运行开关
+        private bool tool = false;
+        private bool operation = false;
+        private bool op = true;
+        private int i = 0;
         private enum speeds {
             slower=1000,
             slow=800,
@@ -105,16 +113,44 @@ namespace ChinaBlock
         /*键盘操作*/
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (!op)
+                return;
             switch (e.KeyCode)
             {
-                case Keys.NumPad6: if (!currentBlockInPlayer2.right(gameFieldInPlayer2)) GameField.PlaySound("CanNotDo"); break;//2向右移动
+                case Keys.NumPad6:if (!currentBlockInPlayer2.right(gameFieldInPlayer2)) GameField.PlaySound("CanNotDo");  break;//2向右移动
                 case Keys.NumPad4: if (!currentBlockInPlayer2.left(gameFieldInPlayer2)) GameField.PlaySound("CanNotDo"); break; //2向左移动
                 case Keys.NumPad8: currentBlockInPlayer2.Rotate(gameFieldInPlayer2); break; //2旋转
                 case Keys.NumPad5: while (currentBlockInPlayer2.down(gameFieldInPlayer2)) ; break; //2向下加速
                 case Keys.W: currentBlockInPlayer1.Rotate(gameFieldInPlayer1); break; //1旋转
-                case Keys.A: if (!currentBlockInPlayer1.left(gameFieldInPlayer1)) GameField.PlaySound("CanNotDo"); break; //1向左移动
-                case Keys.S: while (currentBlockInPlayer1.down(gameFieldInPlayer1)) ; break; //1向下加速
-                case Keys.D: if (!currentBlockInPlayer1.right(gameFieldInPlayer1)) GameField.PlaySound("CanNotDo"); break;//1向右移动
+                case Keys.A:
+                    if (operation)
+                    {
+                        if (!nextTool1.left(gameFieldInPlayer1)) GameField.PlaySound("CanNotDo");
+                    }
+                    else
+                    {
+                        if (!currentBlockInPlayer1.left(gameFieldInPlayer1)) GameField.PlaySound("CanNotDo"); break;
+                    }
+                    break;//2向左移动 
+                case Keys.S:
+                    if (operation)
+                    {
+                        while (nextTool1.down(gameFieldInPlayer1)) ; break; //1向下加速
+                    }
+                    else
+                    {
+                        while (currentBlockInPlayer1.down(gameFieldInPlayer1)) ; break; //1向下加速
+                    }
+                case Keys.D:
+                    if (operation)
+                    {
+                        if (!nextTool1.right(gameFieldInPlayer1)) GameField.PlaySound("CanNotDo");
+                    }
+                    else
+                    {
+                        if (!currentBlockInPlayer1.right(gameFieldInPlayer1)) GameField.PlaySound("CanNotDo");
+                    }
+                    break;//2向右移动
                 case Keys.Space:                           //空格：暂停
                     timer1.Enabled = !timer1.Enabled;
                     if (!timer1.Enabled)
@@ -134,10 +170,22 @@ namespace ChinaBlock
         {
             if (!stillRuning)
                 return;
-            
-            //1检测是否还可以下移
-            if (!currentBlockInPlayer1.down(gameFieldInPlayer1))
+
+            i++;
+            if (tool&&!currentBlockInPlayer1.down(gameFieldInPlayer1)&&!nextTool1.down(gameFieldInPlayer1))
             {
+                nextTool1 = new Tool(startLocationInPlayer1, Tool.ToolKinds.bomb);
+                nextTool1.Draw(gameFieldInPlayer1.winHandle);
+                operation = true;
+  
+            }
+            //1检测是否还可以下移
+            if (!currentBlockInPlayer1.down(gameFieldInPlayer1)&&(!nextTool1.down(gameFieldInPlayer1)))
+            {
+                if (!nextTool1.down(gameFieldInPlayer1))
+                {
+                    toolLocation1 = nextTool1.square.location;
+                }
                 if (currentBlockInPlayer1.Top() == 0)
                 {//1如果到顶则游戏结束
                     showMsg("Game Over！玩家二获胜");
@@ -146,23 +194,36 @@ namespace ChinaBlock
                     return;
                 }
                 //1否则计算分数并继续
-                int eraseLines = gameFieldInPlayer1.CheckLines();
-                if (eraseLines > 0)
-                {
-                    scoreInPlayer1 += GameField.width * eraseLines;
-                    t_score1.Text = scoreInPlayer1.ToString();
-                    picBackGround1.Invalidate();
-                    Application.DoEvents();
-                    gameFieldInPlayer1.Redraw();
-                }
-                //1产生下一个block
+               
+
                 currentBlockInPlayer1 = new Block(startLocationInPlayer1, nextBlockInPlayer1.blockType);
                 currentBlockInPlayer1.Draw(gameFieldInPlayer1.winHandle);
+                operation = false;
+                //1产生下一个block
                 pic_preView1.Refresh();
                 nextBlockInPlayer1 = new Block(new Point(80, 50), Block.BlockTypes.undefined);
                 nextBlockInPlayer1.Draw(pic_preView1.Handle);
             }
-            currentBlockInPlayer1.down(gameFieldInPlayer1);
+            int eraseLines1 = gameFieldInPlayer1.CheckLines();
+            if (eraseLines1 > 0)
+            {
+                scoreInPlayer1 += GameField.width * eraseLines1;
+                t_score1.Text = scoreInPlayer1.ToString();
+                picBackGround1.Invalidate();
+                Application.DoEvents();
+                gameFieldInPlayer1.Redraw();
+            }
+            if(gameFieldInPlayer1.isEmpty(toolLocation1.X/ GameField.SquareSize, toolLocation1.Y / GameField.SquareSize)&&toolLocation1.Y>0&&tool){
+                op = false;
+                if (i == 5)
+                    i++;
+            }
+            if (i % 5 == 0)
+            {
+                op = true;
+                i = 0;
+            }
+
 
             //2检测是否还可以下移
             if (!currentBlockInPlayer2.down(gameFieldInPlayer2))
@@ -175,10 +236,10 @@ namespace ChinaBlock
                     return;
                 }
                 //2否则计算分数并继续
-                int eraseLines = gameFieldInPlayer2.CheckLines();
-                if (eraseLines > 0)
+                int eraseLines2 = gameFieldInPlayer2.CheckLines();
+                if (eraseLines2 > 0)
                 {
-                    scoreInPlayer2 += GameField.width * eraseLines;
+                    scoreInPlayer2 += GameField.width * eraseLines2;
                     t_score2.Text = scoreInPlayer2.ToString();
                     picBackGround2.Invalidate();
                     Application.DoEvents();
@@ -192,6 +253,10 @@ namespace ChinaBlock
                 nextBlockInPlayer2.Draw(pic_preView2.Handle);
             }
             currentBlockInPlayer2.down(gameFieldInPlayer2);
+            tool = false;
+            Random rand = new Random();//随机产生道具
+            if (rand.Next(4) % 2 == 0)
+                tool = true;
         }
 
          /*窗口重绘*/
@@ -224,6 +289,7 @@ namespace ChinaBlock
             结束ToolStripMenuItem.Enabled = true;
             if (currentBlockInPlayer1 == null && currentBlockInPlayer2 == null)
             {//第一次开始
+                nextTool1 = new Tool(startTool, Tool.ToolKinds.undefined);
                 currentBlockInPlayer1 = new Block(startLocationInPlayer1, Block.BlockTypes.undefined);
                 currentBlockInPlayer1.Draw(gameFieldInPlayer1.winHandle);
                 nextBlockInPlayer1 = new Block(new Point(80, 50), Block.BlockTypes.undefined);
@@ -236,6 +302,8 @@ namespace ChinaBlock
                 /////////////////////////////////
                 stillRuning = true;
                 timer1.Start();
+                op = true;
+                i = 0;
             }
             else
             {
@@ -277,6 +345,9 @@ namespace ChinaBlock
         /*重新开始一盘*/
         private void 重新开始ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            nextTool1 = new Tool(startTool, Tool.ToolKinds.undefined);
+            operation = false;
+            tool = false;
             timer1.Stop();
             picBackGround1.Refresh();   //刷新游戏区
             picBackGround2.Refresh();
@@ -310,6 +381,7 @@ namespace ChinaBlock
             结束ToolStripMenuItem.Enabled = true;
             stillRuning = true;
             timer1.Start();
+            op = true;
         }
 
         /*退出游戏*/

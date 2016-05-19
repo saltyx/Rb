@@ -107,6 +107,16 @@ namespace ChinaBlock
                         if ((arrBitBlock[y] & (1 << x)) != 0)
                             arriveBlock[x, y].Draw(winHandle);  
         }
+        public void Bomb()
+        {
+
+            for(int i= 0;i<height;i++)
+            for (int x = 0; x < width; x++) //消除该行的block
+                {
+                    arriveBlock[x, i] = null;
+                }
+
+        }
         
         //结束
     }
